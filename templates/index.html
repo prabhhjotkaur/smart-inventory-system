@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Inventory & Dead Stock Management System</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+
+    <!-- Floating Toast Notification -->
+    <div id="toast" class="toast"></div>
+
+    <!-- Header Navigation -->
+    <header class="header">
+        <div class="logo">
+            <span class="logo-icon">📦</span>
+            <h2>Smart Inventory & Dead Stock System</h2>
+        </div>
+        <nav class="nav">
+            <button class="nav-btn active" onclick="showTab('dashboard')">Dashboard</button>
+            <button class="nav-btn" onclick="showTab('inventory')">All Items</button>
+            <button class="nav-btn" onclick="showTab('restock')">Restock (Knapsack DP)</button>
+            <button class="btn-reset" onclick="resetData()">Reset Data</button>
+        </nav>
+    </header>
+
+    <!-- Algorithm Execution Status Banner -->
+    <div class="info-banner" id="algoBanner">
+        <div class="info-content">
+            <span class="info-tag" id="algoTag">Algorithm: Ready</span>
+            <span class="info-metric">Time Taken: <b id="algoTime">0.00 ms</b></span>
+            <span class="info-metric">Complexity: <b id="algoComplexity">O(1)</b></span>
+            <span class="info-detail" id="algoDetail">System ready. Perform search, sort, or restock to view algorithm telemetry.</span>
+        </div>
+    </div>
+
+    <!-- MAIN CONTAINER -->
+    <main class="container">
+
+        <!-- ================= TAB 1: DASHBOARD & DEAD STOCK ================= -->
+        <section id="tab-dashboard" class="tab-pane active">
+            <!-- 4 Simple KPI Cards (NO SKUs text!) -->
+            <div class="kpi-grid">
+                <div class="kpi-card">
+                    <span class="kpi-title">TOTAL ITEMS</span>
+                    <h3 class="kpi-number" id="kpiItems">113</h3>
+                </div>
+                <div class="kpi-card">
+                    <span class="kpi-title">TOTAL STOCK UNITS</span>
+                    <h3 class="kpi-number" id="kpiUnits">0 Units</h3>
+                </div>
+                <div class="kpi-card">
+                    <span class="kpi-title">TOTAL INVENTORY VALUE</span>
+                    <h3 class="kpi-number text-blue" id="kpiValue">₹0</h3>
+                </div>
+                <div class="kpi-card">
+                    <span class="kpi-title">DEAD STOCK (CAPITAL LOCKED)</span>
+                    <h3 class="kpi-number text-red" id="kpiDeadCapital">₹0</h3>
+                </div>
+            </div>
+
+            <!-- Dead Stock Section -->
+            <div class="card">
+                <div class="card-head">
+                    <div>
+                        <h3>Dead Stock Items</h3>
+                        <p class="subtitle">Items sitting idle without sales for more than the selected days.</p>
+                    </div>
+                    <div class="threshold-selector">
+                        <span>Threshold:</span>
+                        <button class="pill-btn" onclick="setThreshold(30)">30 Days</button>
+                        <button class="pill-btn active" onclick="setThreshold(60)">60 Days</button>
+                        <button class="pill-btn" onclick="setThreshold(90)">90 Days</button>
+                    </div>
+                </div>
+
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Item ID</th>
+                                <th>Item Name</th>
+                                <th>Category</th>
+                                <th>Current Stock</th>
+                                <th>Unit Cost</th>
+                                <th>Days Idle</th>
+                                <th>Tied-up Capital</th>
+                                <th>Suggested Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="deadTableBody">
+                            <!-- Populated dynamically by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= TAB 2: ALL ITEMS (SEARCH & SORT) ================= -->
+        <section id="tab-inventory" class="tab-pane">
+            <div class="card">
+                <div class="card-head">
+                    <div>
+                        <h3>Inventory Items</h3>
+                        <p class="subtitle">Search using Linear/Binary Search or Sort using Merge/Quick/Bubble Sort.</p>
+                    </div>
+                    <button class="btn-blue" onclick="openAddModal()">+ Add New Item</button>
+                </div>
+
+                <!-- Controls Bar -->
+                <div class="controls-bar">
+                    <div class="search-box">
+                        <input type="text" id="searchInput" placeholder="Search item (e.g. Pen, Bulb, Scale, Wire, Tape)..." onkeyup="if(event.key==='Enter') searchItems()">
+                        <select id="searchAlgo">
+                            <option value="linear">Linear Search — O(n)</option>
+                            <option value="binary">Binary Search — O(log n)</option>
+                        </select>
+                        <button class="btn-blue" onclick="searchItems()">Search</button>
+                    </div>
+
+                    <div class="sort-box">
+                        <span>Sort By:</span>
+                        <select id="sortKey" onchange="sortItems()">
+                            <option value="price">Selling Price</option>
+                            <option value="cost">Unit Cost</option>
+                            <option value="stock">Stock Quantity</option>
+                            <option value="units_sold">Units Sold</option>
+                        </select>
+                        <select id="sortAlgo" onchange="sortItems()">
+                            <option value="merge">Merge Sort — O(n log n)</option>
+                            <option value="quick">Quick Sort — O(n log n)</option>
+                            <option value="bubble">Bubble Sort — O(n²)</option>
+                        </select>
+                        <select id="sortOrder" onchange="sortItems()">
+                            <option value="asc">Low to High (Asc)</option>
+                            <option value="desc">High to Low (Desc)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Item Name</th>
+                                <th>Category</th>
+                                <th>Cost (₹)</th>
+                                <th>Price (₹)</th>
+                                <th>Stock</th>
+                                <th>Min Level</th>
+                                <th>Sold</th>
+                                <th>Stock Value</th>
+                                <th>Days Idle</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="itemsTableBody">
+                            <!-- Populated dynamically by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= TAB 3: RESTOCK OPTIMIZER ================= -->
+        <section id="tab-restock" class="tab-pane">
+            <div class="grid-2">
+                <!-- 0/1 Knapsack Optimizer -->
+                <div class="card">
+                    <div class="card-head">
+                        <div>
+                            <h3>0/1 Knapsack Restock Optimizer</h3>
+                            <p class="subtitle">Selects the most profitable low-stock items within your budget.</p>
+                        </div>
+                    </div>
+
+                    <div class="budget-row">
+                        <label>Budget (₹):</label>
+                        <input type="number" id="budgetInput" value="2000" min="200" step="100">
+                        <button class="btn-blue" onclick="runKnapsack()">Optimize Restock</button>
+                    </div>
+
+                    <div class="budget-summary" id="budgetSummary">
+                        <!-- Summary metrics -->
+                    </div>
+
+                    <div class="table-wrap">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Item</th>
+                                    <th>Restock Qty</th>
+                                    <th>Batch Cost (₹)</th>
+                                    <th>Expected Profit</th>
+                                    <th>Queue</th>
+                                </tr>
+                            </thead>
+                            <tbody id="knapsackTableBody">
+                                <!-- Populated dynamically by JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- FIFO Order Queue -->
+                <div class="card">
+                    <div class="card-head">
+                        <div>
+                            <h3>Restock Order Queue (FIFO)</h3>
+                            <p class="subtitle">Orders are processed in First-In, First-Out sequence.</p>
+                        </div>
+                        <button class="btn-green" onclick="processQueue()">Process Next Order</button>
+                    </div>
+
+                    <div class="table-wrap">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Order ID</th>
+                                    <th>Item</th>
+                                    <th>Qty</th>
+                                    <th>Total Cost</th>
+                                </tr>
+                            </thead>
+                            <tbody id="queueTableBody">
+                                <!-- Populated dynamically by JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Simple Add Item Modal -->
+    <div id="addModal" class="modal">
+        <div class="modal-box">
+            <h3>Add New Item</h3>
+            <div class="form-row">
+                <label>Item Name:</label>
+                <input type="text" id="new_name" placeholder="e.g. Marker Pen, 5A Socket">
+            </div>
+            <div class="form-row">
+                <label>Category:</label>
+                <select id="new_category">
+                    <option value="Stationery">Stationery</option>
+                    <option value="Electrical">Electrical</option>
+                    <option value="Hardware">Hardware</option>
+                    <option value="General">General</option>
+                </select>
+            </div>
+            <div class="form-row">
+                <label>Cost Price (₹):</label>
+                <input type="number" id="new_cost" value="10">
+            </div>
+            <div class="form-row">
+                <label>Selling Price (₹):</label>
+                <input type="number" id="new_price" value="20">
+            </div>
+            <div class="form-row">
+                <label>Stock Quantity:</label>
+                <input type="number" id="new_stock" value="20">
+            </div>
+            <div class="form-row">
+                <label>Minimum Stock Level:</label>
+                <input type="number" id="new_min_stock" value="10">
+            </div>
+            <div class="modal-actions">
+                <button class="btn-cancel" onclick="closeAddModal()">Cancel</button>
+                <button class="btn-blue" onclick="saveNewItem()">Save Item</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/js/app.js"></script>
+</body>
+</html>

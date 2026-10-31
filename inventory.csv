@@ -1,0 +1,114 @@
+id,name,category,cost,price,stock,min_stock,units_sold,last_sale_date
+P101,Ball Pen (Blue),Stationery,5.0,10.0,50,20,2,2026-07-28
+P102,Ball Pen (Black),Stationery,5.0,10.0,40,20,123,2026-10-29
+P103,Gel Pen (Blue),Stationery,10.0,20.0,30,15,126,2026-10-28
+P104,Gel Pen (Red),Stationery,10.0,20.0,20,10,129,2026-10-27
+P105,HB Pencil Pack,Stationery,25.0,45.0,23,15,15,2026-09-12
+P106,Plastic Scale 15cm,Stationery,6.0,12.0,30,15,85,2026-10-28
+P107,Steel Ruler 30cm,Stationery,22.0,40.0,20,10,138,2026-10-24
+P108,White Eraser (Pack of 5),Stationery,12.0,25.0,40,15,2,2026-07-14
+P109,Pencil Sharpener,Stationery,4.0,8.0,28,20,15,2026-09-08
+P110,Geometry Box,Stationery,65.0,110.0,16,8,147,2026-10-29
+P111,Spiral Notebook 200 Pgs,Stationery,45.0,75.0,5,15,85,2026-10-27
+P112,A4 Copier Paper Ream,Stationery,180.0,260.0,20,10,153,2026-10-27
+P113,Sticky Notes Yellow,Stationery,20.0,35.0,23,15,15,2026-09-04
+P114,Fevicol Glue 100g,Stationery,25.0,40.0,24,12,159,2026-10-25
+P115,Clear Tape 1 inch,Stationery,15.0,25.0,40,15,2,2026-06-30
+P116,Paper Cutter Knife,Stationery,18.0,30.0,3,10,85,2026-10-26
+P117,Permanent Marker Black,Stationery,15.0,25.0,23,15,15,2026-08-31
+P118,Whiteboard Marker Blue,Stationery,18.0,30.0,24,12,171,2026-10-29
+P119,Stapler Small,Stationery,40.0,65.0,16,8,174,2026-10-28
+P120,Stapler Pins Box,Stationery,12.0,20.0,40,20,177,2026-10-27
+P121,Paper Clips Box,Stationery,15.0,25.0,5,15,85,2026-10-29
+P122,Document Folder Plastic,Stationery,18.0,35.0,40,15,2,2026-06-16
+P123,Highlighter Yellow,Stationery,16.0,30.0,24,12,186,2026-10-24
+P124,Correction Pen Whitener,Stationery,22.0,35.0,20,10,189,2026-10-23
+P125,LED Bulb 9W (Cool White),Electrical,65.0,110.0,23,15,15,2026-08-23
+P126,LED Bulb 12W,Electrical,85.0,140.0,4,12,85,2026-10-28
+P127,LED Bulb 15W,Electrical,110.0,175.0,20,10,198,2026-10-28
+P128,CFL Bulb 18W (Old Stock),Electrical,70.0,110.0,16,8,201,2026-10-27
+P129,Incandescent Bulb 60W Yellow,Electrical,12.0,20.0,40,15,2,2026-06-02
+P130,Tube Light Batten 20W,Electrical,140.0,220.0,20,10,207,2026-10-25
+P131,Night Lamp 0.5W,Electrical,25.0,45.0,4,12,85,2026-10-27
+P132,3-Pin Power Plug Top 16A,Electrical,30.0,55.0,30,15,213,2026-10-23
+P133,2-Pin Flat Plug,Electrical,10.0,20.0,28,20,15,2026-09-09
+P134,Modular Switch 6A,Electrical,22.0,40.0,40,20,219,2026-10-29
+P135,Modular Socket 6A,Electrical,35.0,60.0,30,15,222,2026-10-28
+P136,Electric Insulation Tape,Electrical,10.0,18.0,60,25,2,2026-05-19
+P137,Extension Cord 4-Way 2m,Electrical,180.0,280.0,16,8,15,2026-09-05
+P138,Tester Screwdriver 500V,Electrical,25.0,45.0,20,10,231,2026-10-25
+P139,Copper Wire Coil 1.5 sq mm,Electrical,550.0,780.0,10,5,234,2026-10-24
+P140,Ceiling Fan Regulator,Electrical,95.0,160.0,16,8,237,2026-10-23
+P141,Door Bell (Ding Dong),Electrical,110.0,190.0,2,6,85,2026-10-29
+P142,AA Alkaline Battery (4-Pk),Electrical,60.0,95.0,30,15,243,2026-10-29
+P143,AAA Pencil Battery (4-Pk),Electrical,60.0,95.0,40,15,2,2026-05-05
+P144,9V Radio Battery,Electrical,25.0,45.0,20,10,249,2026-10-27
+P145,Steel Padlock 40mm,Hardware,75.0,120.0,16,8,15,2026-08-28
+P146,Brass Padlock 50mm,Hardware,140.0,220.0,2,6,85,2026-10-28
+P147,Screwdriver Set 6-in-1,Hardware,85.0,150.0,12,6,258,2026-10-24
+P148,Combination Pliers 8-inch,Hardware,110.0,180.0,10,5,261,2026-10-23
+P149,Hand Hammer 500g,Hardware,95.0,160.0,13,5,15,2026-08-24
+P150,Measuring Tape 3 Meter,Hardware,45.0,80.0,30,10,2,2026-04-21
+P151,Measuring Tape 5 Meter,Hardware,70.0,120.0,2,8,85,2026-10-27
+P152,Nails 2-inch Box 500g,Hardware,40.0,65.0,20,10,273,2026-10-27
+P153,Wood Screws Assorted Box,Hardware,50.0,85.0,18,10,15,2026-09-14
+P154,Wall Plugs Rawl Gitti (100),Hardware,25.0,45.0,30,15,279,2026-10-25
+P155,Hacksaw Frame with Blade,Hardware,80.0,140.0,10,5,282,2026-10-24
+P156,Spare Hacksaw Blades (3),Hardware,20.0,35.0,3,10,85,2026-10-26
+P157,WD-40 Spray 64g,Hardware,110.0,150.0,22,6,2,2026-04-07
+P158,M-Seal Epoxy Putty 50g,Hardware,15.0,25.0,40,20,291,2026-10-29
+P159,Super Glue Fevikwik 3g,Hardware,4.0,5.0,80,40,294,2026-10-28
+P160,Sandpaper Sheet Medium,Hardware,8.0,15.0,50,25,297,2026-10-27
+P161,Paint Brush 2-inch,Hardware,25.0,45.0,4,12,85,2026-10-29
+P162,Cotton Cleaning Cloth Duster,General,15.0,30.0,40,20,303,2026-10-25
+P163,Microfiber Cloth,General,35.0,65.0,30,15,306,2026-10-24
+P164,Plastic Spray Bottle 500ml,General,30.0,55.0,30,10,2,2026-03-24
+P165,Stainless Steel Scissors 7-in,General,35.0,65.0,18,10,15,2026-09-02
+P166,Torch Light Rechargeable,General,120.0,195.0,2,8,85,2026-10-28
+P167,Calculator 8-Digit Pocket,Stationery,85.0,140.0,12,6,318,2026-10-28
+P168,Desktop Desk Organizer,Stationery,95.0,160.0,10,5,321,2026-10-27
+P169,Register Notebook 100 Pgs,Stationery,25.0,40.0,65,15,45,2026-10-29
+P170,Register Notebook 300 Pgs,Stationery,65.0,105.0,15,10,5,2026-09-16
+P171,Graph Paper Pad 50 Sheets,Stationery,20.0,35.0,8,10,5,2026-07-03
+P172,Ruled Exam Sheets (Bundle),Stationery,70.0,110.0,45,10,45,2026-10-26
+P173,Plastic Clip File A4,Stationery,12.0,25.0,60,15,45,2026-10-27
+P174,Ring Binder File Big,Stationery,60.0,95.0,4,8,5,2026-07-13
+P175,White Chalk Box 100pcs,Stationery,30.0,50.0,5,10,5,2026-06-23
+P176,Dustless Colored Chalk Box,Stationery,40.0,65.0,2,8,5,2026-06-13
+P177,Duster Sponge for Board,Stationery,20.0,35.0,15,10,45,2026-10-13
+P178,Stamp Pad Ink Bottle 30ml,Stationery,22.0,35.0,3,8,5,2026-07-08
+P179,Stamp Pad Blue Small,Stationery,25.0,40.0,12,10,45,2026-10-09
+P180,Glue Stick 15g,Stationery,20.0,35.0,40,15,45,2026-10-28
+P181,Drawing Sheet Cartridge (10),Stationery,35.0,60.0,18,10,45,2026-10-19
+P182,Sketch Pen Set 12 Colors,Stationery,30.0,50.0,35,12,45,2026-10-27
+P183,Wax Crayons 16 Shades,Stationery,25.0,45.0,22,12,45,2026-10-23
+P184,Oil Pastels 25 Shades Box,Stationery,65.0,100.0,14,8,45,2026-10-16
+P185,Water Color Tube Set 12,Stationery,75.0,120.0,8,6,5,2026-09-13
+P186,Painting Brush Round #4,Stationery,15.0,25.0,12,10,45,2026-10-16
+P187,Painting Brush Flat #8,Stationery,25.0,40.0,6,8,5,2026-07-28
+P188,Color Palette Plastic,Stationery,15.0,25.0,4,10,5,2026-07-13
+P189,LED Bulb 7W Warm White,Electrical,55.0,90.0,30,12,45,2026-10-28
+P190,LED Bulb 20W High Power,Electrical,160.0,250.0,2,6,5,2026-08-07
+P191,LED Panel Light 6W Round,Electrical,140.0,220.0,3,8,5,2026-07-18
+P192,LED Panel Light 12W Square,Electrical,210.0,320.0,2,6,5,2026-06-23
+P193,Strip Light Warm 5 Meter,Electrical,160.0,260.0,8,5,5,2026-08-27
+P194,Halogen Bulb 500W (Heavy),Electrical,45.0,80.0,12,5,5,2026-05-24
+P195,Ceiling Rose White,Electrical,15.0,25.0,25,15,45,2026-10-25
+P196,Batten Holder Angled,Electrical,18.0,30.0,30,15,45,2026-10-27
+P197,Pendant Lamp Holder Brass,Electrical,25.0,45.0,4,10,5,2026-07-08
+P198,Bed Switch Single 6A,Electrical,15.0,25.0,18,15,45,2026-10-21
+P199,Anchor PVC Gang Box 1-Way,Electrical,18.0,30.0,25,15,45,2026-10-26
+P200,Anchor PVC Gang Box 4-Way,Electrical,40.0,65.0,12,10,45,2026-10-23
+P201,Casing Capping 1-inch 2m,Electrical,28.0,45.0,35,15,45,2026-10-28
+P202,Wire Grip Clips 8mm (100),Electrical,22.0,35.0,40,15,45,2026-10-29
+P203,Cable Ties 4-inch (Pack 100),Electrical,25.0,45.0,50,15,45,2026-10-30
+P204,Cable Ties 8-inch (Pack 100),Electrical,45.0,75.0,35,10,45,2026-10-27
+P205,Insulation Tape Red,Electrical,10.0,18.0,25,20,45,2026-10-28
+P206,Insulation Tape Green,Electrical,10.0,18.0,20,20,45,2026-10-25
+P207,Fuse Wire 5 Amp Reel,Electrical,12.0,20.0,4,10,5,2026-06-13
+P208,Main Switch Rewireable 16A,Electrical,180.0,290.0,2,4,5,2026-06-03
+P209,Soldering Iron 25W,Hardware,110.0,175.0,6,5,45,2026-10-19
+P210,Soldering Lead Wire 50g,Hardware,45.0,75.0,12,8,45,2026-10-23
+P211,Soldering Flux Paste 15g,Hardware,15.0,25.0,15,10,45,2026-10-26
+P212,Steel Wire Brush Small,Hardware,25.0,40.0,5,8,5,2026-07-28
+P213,Spirit Level 12-inch,Hardware,85.0,140.0,3,5,5,2026-07-13
